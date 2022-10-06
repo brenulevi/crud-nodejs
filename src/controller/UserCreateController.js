@@ -3,7 +3,7 @@ const User = require("../model/User");
 
 module.exports = {
   async create(req, res, next) {
-    const { name, email, password, age } = req.body;
+    const { name, email, password, age, admin } = req.body;
 
     let user = await User.findOne({ "email": email });
     if (!user) {
@@ -16,7 +16,8 @@ module.exports = {
         age,
         likes: 0,
         p_language: null,
-        createdAt: Date.now()
+        createdAt: Date.now(),
+        admin: Boolean(admin)
       });
 
       try {

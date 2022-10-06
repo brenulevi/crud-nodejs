@@ -9,9 +9,10 @@ const userSchema = new Schema({
   createdAt: Date,
   likes: Number,
   p_language: String,
-  age: Number
+  age: Number,
+  admin: Boolean
 });
 
-const User = model('User', userSchema, 'user');
+const User = model('User', userSchema, 'users');
 
 module.exports = User;

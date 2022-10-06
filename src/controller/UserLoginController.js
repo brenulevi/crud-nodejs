@@ -9,8 +9,8 @@ module.exports = {
     const user = await User.findOne({ email });
 
     if (user && bcrypt.compare(password, user.password)) {
-      const id = user._id;
-      const token = jwt.sign({ id }, process.env._DB_SECRET, {
+      const id = user._id; const admin = user.admin;
+      const token = jwt.sign({ id, admin }, process.env._DB_SECRET, {
         expiresIn: 300
       });
       return res.json({ auth: true, token: token, user: user });
