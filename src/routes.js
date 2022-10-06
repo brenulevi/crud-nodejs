@@ -16,8 +16,8 @@ router.post("/create", UserCreateController.create);
 // Login User
 router.post("/login", UserLoginController.login);
 
-// Get logged user
-router.get("/:id/profile", middlewares.verifyToken, UserProfileController.list)
+// Get User
+router.get("/:id/profile", middlewares.verifyToken, UserProfileController.list);
 
 // Edit User
 router.put("/edit", middlewares.verifyToken, UserEditController.edit);
